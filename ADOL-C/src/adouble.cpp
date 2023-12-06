@@ -277,34 +277,13 @@ adouble::adouble( const adub& a ) {
 /*                                                              DESTRUCTORS */
 
 /*--------------------------------------------------------------------------*/
-adouble::~adouble() {
+badouble::~badouble() {
 #ifdef adolc_overwrite
     if (isInit) {
 	free_loc(location);
     }
 #endif
 }
-
-/*--------------------------------------------------------------------------*/
-adub::~adub() {
-#ifdef adolc_overwrite
-    if (isInit) {
-	free_loc(location);
-    }
-#endif
-}
-
-
-/****************************************************************************/
-/*                                                                  HELPERS */
-
-adub* adubp_from_adub(const adub& a) {
-    locint locat = a.loc();
-    const_cast<adub&>(a).isInit = false;
-    adub *retp = new adub(locat);
-    return retp;
-}
-
 
 /****************************************************************************/
 /*                                                                   VALUE */
